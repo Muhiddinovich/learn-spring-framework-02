@@ -19,14 +19,15 @@ public class BusinessCalculationService {
 
 
 	public int findMax() {
-		return 0;
+		try (var context = new AnnotationConfigApplicationContext(BusinessCalculationService.class)) {			
+			return Arrays.stream(context.getBean(DataService.class).retrieveData()).max().orElse(0);
+		}
 	}
 	
 
 	public static void main(String[] args) {
-		try (var context = new AnnotationConfigApplicationContext(BusinessCalculationService.class)) {
-			Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
-		} 
+		BusinessCalculationService dataService = new BusinessCalculationService();
+		System.out.println(dataService.findMax());
 	}
 
 }

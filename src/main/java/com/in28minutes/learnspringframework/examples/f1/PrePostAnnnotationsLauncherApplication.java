@@ -16,7 +16,7 @@ class SomeClass {
 	private SomeDependency SomeDependency;
 
 	public SomeClass(SomeDependency SomeDependency) { // Constructor
-		super();
+		super(); 
 		this.SomeDependency = SomeDependency;
 		System.out.println("All dependencies are ready!");
 	}
